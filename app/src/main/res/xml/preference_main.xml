@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<ru.codev01.app.rebootmanager.preferences.RebootSystemPreference />
-	<ru.codev01.app.rebootmanager.preferences.RebootRecoveryPreference />
-	<ru.codev01.app.rebootmanager.preferences.RebootBootloaderPreference />
-</PreferenceScreen>

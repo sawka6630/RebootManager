@@ -7,41 +7,83 @@ package ru.codev01.app.rebootmanager;
 
 import android.app.*;
 import android.content.*;
-import android.graphics.*;
 import android.os.*;
 import android.preference.*;
-import android.view.*;
 import ru.codev01.app.rebootmanager.*;
 
 import java.lang.Process;
-import android.text.*;
-import android.widget.*;
 
-public class RebootManager extends PreferenceActivity
- {
+public class RebootManager extends PreferenceActivity {
+	
+	// mOptions - тут код, который будет закрывать активность приложения
+	void mOptions() { finishAndRemoveTask(); }
+	
+	private static String $mRebootSystem = "mRebootSystem";
+	private static String $mRebootRecovery = "mRebootRecovery";
+	private static String $mRebootBootloader = "mRebootBootloader";
+	
 	@Override
-	protected void onCreate(Bundle savedInstanceState){
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.reboot_options);
-		addPreferencesFromResource(R.xml.preference_main);
-		try {
-            Process exec = Runtime.getRuntime().exec("su");
+		PreferenceScreen rootScreen = getPreferenceManager().createPreferenceScreen(this);
+		setPreferenceScreen(rootScreen);
+
+		try { // проверка прав суперпользователя
+            Process exec = Runtime.getRuntime().exec(App.$cmdCheckRoot);
         } catch (Exception e) {
             Exception exception = e;
+			// если права не получены: отобразим AlertDialog с сообщением
 			dlgRootNoAccess(RebootManager.this);
         }
+
+		// создаем пункты (Preferences)
+		// пункт "Система"
+		Preference mRebootSystem = new Preference(this);
+		mRebootSystem.setKey($mRebootSystem);
+		mRebootSystem.setTitle(R.string.reboot_system);
+		mRebootSystem.setSummary(R.string.reboot_system_summary);
+		
+		// пункт "Режим восстановления"
+		Preference mRebootRecovery = new Preference(this);
+		mRebootRecovery.setKey($mRebootRecovery);
+		mRebootRecovery.setTitle(R.string.reboot_recovery);
+		mRebootRecovery.setSummary(R.string.reboot_recovery_summary);
+
+		// пункт "Загрузчик"
+		Preference mRebootBootloader = new Preference(this);
+		mRebootBootloader.setKey($mRebootBootloader);
+		mRebootBootloader.setTitle(R.string.reboot_bootloader);
+		mRebootBootloader.setSummary(R.string.reboot_bootloader_summary);
+
+		// порядок элементов на экране
+		/* 1 */ rootScreen.addPreference(mRebootSystem);
+		/* 2 */ rootScreen.addPreference(mRebootRecovery);
+		/* 3 */ rootScreen.addPreference(mRebootBootloader);
 	}
 	
-	void init() { finishAndRemoveTask(); }
-	
+	@Override // реакция на нажатие пунктов
+	public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
+		String itemKey = pref.getKey();
+		if ($mRebootSystem.equals(itemKey)) { // реакция на нажатие "Система"
+			App.actionRebootSystem();
+		} else if ($mRebootRecovery.equals(itemKey)) { // реакция на нажатие "Режим восстановления"
+			App.actionRebootRecovery();
+		} else if ($mRebootBootloader.equals(itemKey)) { // реакция на нажатие "Загрузчик"
+			App.actionRebootBootloader();
+		} return true;
+	}
+
+	// если права рут не получены
 	public void dlgRootNoAccess(RebootManager rebootManager) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(RebootManager.this);
 		builder.setTitle(R.string.root_noaccess_title);
 		builder.setMessage(R.string.root_noaccess_message);
 		builder.setCancelable(false);
+		builder.setIcon(R.mipmap.ic_launcher);
 		builder.setPositiveButton(R.string.exit_app, new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int id) {
-					init();
+					mOptions();
 				}
 			});
 		AlertDialog alert = builder.create();
@@ -49,14 +91,27 @@ public class RebootManager extends PreferenceActivity
 	}
 
 	@Override
-	protected void onStop() {
-		super.onStop();
-		init();
+	protected void onPause() {
+		super.onPause();
+		mOptions();
 	}
 
 	@Override
-	protected void onPause() {
-		super.onPause();
-		init();
+	protected void onStop() {
+		super.onStop();
+		mOptions();
 	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		mOptions();
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		mOptions();
+	}
+	
 }

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.codev01.app.rebootmanager" >
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+	package="ru.codev01.app.rebootmanager" >
 
     <application
+		android:finishOnCloseSystemDialogs="true" 
+		android:launchMode="singleInstance"
+		android:noHistory="true"
+		android:excludeFromRecents="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.DeviceDefault.Light.Dialog">
@@ -10,13 +15,17 @@
 			android:name=".RebootManager"
             android:label="@string/app_title" >
             <intent-filter>
+				<!--<action android:name="android.intent.action.CREATE_SHORTCUT" />-->
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+			<meta-data
+				android:name="android.app.shortcuts"
+				android:resource="@xml/app_shortcuts" />
         </activity>
 		<activity
 			android:label="@string/app_about"
-			android:name="ru.codev01.app.about.AboutActivity">
+			android:name="ru.codev01.app.rebootmanager.activity.AboutActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.APPLICATION_PREFERENCES" />
 				<category android:name="com.cyanogenmod.category.LAUNCHER_PREFERENCES" />
@@ -24,6 +33,36 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
+
+		<!-- Services -->
+		<service
+			android:enabled="true"
+			android:name=".service.RebootSystemTile"
+			android:icon="@drawable/ic_restart"
+			android:label="@string/reboot_system_tile"
+			android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+			<intent-filter>
+				<action android:name="android.service.quicksettings.action.QS_TILE"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name=".service.RebootRecoveryTile"
+			android:icon="@drawable/ic_recovery"
+			android:label="@string/reboot_recovery_tile"
+			android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+			<intent-filter>
+				<action android:name="android.service.quicksettings.action.QS_TILE"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name=".service.RebootBootloaderTile"
+			android:icon="@drawable/ic_bootloader"
+			android:label="@string/reboot_bootloader_tile"
+			android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+			<intent-filter>
+				<action android:name="android.service.quicksettings.action.QS_TILE"/>
+			</intent-filter>
+		</service>
     </application>
 
 </manifest>

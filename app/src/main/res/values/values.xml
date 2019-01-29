@@ -1,0 +1,27 @@
+<resources>
+	
+	<string name="app_name" translatable="false">RebootManager</string>
+	<string name="app_title">@string/app_name</string>
+	<string name="app_version" translatable="false">2</string>
+	<string name="app_about">About the program</string>
+	
+	<string name="reboot_options">Options for restarting</string>
+	<string name="reboot_system">Restart the system</string>
+	<string name="reboot_system_tile">Restart system</string>
+	<string name="reboot_system_summary">Turning off the device and the device (conventional reboot)</string>
+	<string name="reboot_recovery">Recovery mode</string>
+	<string name="reboot_recovery_tile">@string/reboot_recovery</string>
+	<string name="reboot_recovery_summary">Turning off and transition to recovery mode</string>
+	<string name="reboot_bootloader">Bootloader</string>
+	<string name="reboot_bootloader_summary">Turning off and transition to bootloader</string>
+	<string name="reboot_bootloader_tile">Bootloader</string>
+
+	<string name="root_noaccess_title">@string/app_name</string>
+	<string name="root_noaccess_message"><b>Error:</b> it was not possible to obtain the rights of the superuser that are necessary for the correct operation of the program.</string>
+	
+	<string name="exit_app">Exit</string>
+	
+	<string name="github_releases">Github Releases</string>
+	<string name="github_releases_summary">View all application assemblies on the Github (+ changelog)</string>
+	
+</resources>
