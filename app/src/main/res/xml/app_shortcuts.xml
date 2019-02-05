@@ -2,7 +2,7 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
 	<shortcut
 		android:enabled="true"
-		android:icon="@drawable/ic_about"
+		android:icon="@mipmap/ic_launcher"
 		android:shortcutId="app_about"
 		android:shortcutShortLabel="@string/app_about">
 		<intent

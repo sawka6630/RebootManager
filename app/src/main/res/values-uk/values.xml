@@ -1,0 +1,24 @@
+<resources>
+
+	<string name="app_title">Перезавантажити</string>
+	<string name="app_about">Про програму</string>
+
+	<string name="reboot_options">Параметр перезавантаження</string>
+	<string name="reboot_system">Система</string>
+	<string name="reboot_system_summary">Вимкніть систему та ввімкнемося</string>
+	<string name="reboot_system_tile">Перезапустити систему</string>
+	<string name="reboot_recovery">Режим відновлення</string>
+	<string name="reboot_recovery_summary">Вимкнення та перехід до режиму відновлення</string>
+	<string name="reboot_bootloader">Bootloader</string>
+	<string name="reboot_bootloader_summary">Вимкнення та перехід на режим завантаження Bootloader</string>
+	<string name="reboot_bootloader_tile">@string/reboot_bootloader</string>
+
+	<string name="root_noaccess_message"><b>Помилку:</b> не вдалося отримати кореневі права.</string>
+
+	<string name="exit_app">Вийди з додатка</string>
+
+	<string name="github_releases">Github Releases</string>
+	<string name="github_releases_summary">Переглянути всі збори додатків на веб-сайт Github (+ історія змін у проекті)</string>
+
+	<string name="app_uninstall">Видалити програму</string>
+</resources>

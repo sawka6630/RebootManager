@@ -8,12 +8,12 @@ android {
         applicationId "ru.codev01.app.rebootmanager"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 190128
+        versionCode 190204
         versionName "@string/app_version"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

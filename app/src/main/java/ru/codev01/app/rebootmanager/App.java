@@ -5,11 +5,9 @@
 
 package ru.codev01.app.rebootmanager;
 
-import android.app.*;
 import android.content.*;
 import android.content.pm.*;
-import android.view.*;
-import android.widget.*;
+import java.io.*;
 
 public class App {
 	
@@ -42,6 +40,21 @@ public class App {
 			return "log: error#App.java>getApplicationPackage();";
 		}
 	}
+	
+	public static String getProp(String prop) {
+        try {
+            Process mProcess = Runtime.getRuntime().exec("getprop " + prop);
+            BufferedReader mBufferedReader = new BufferedReader(new InputStreamReader(mProcess.getInputStream()));
+            StringBuilder log = new StringBuilder();
+            String line;
+            while ((line = mBufferedReader.readLine()) != null) {
+                log.append(line);
+            }
+            return log.toString();
+        } catch (IOException e) {
+            return "log: error#App.java>getProp();";
+        }
+    }
 	
 	public static void actionRebootSystem() {
 		try {

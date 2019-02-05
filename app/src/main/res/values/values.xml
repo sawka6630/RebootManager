@@ -1,8 +1,13 @@
 <resources>
 	
+	<!-- Styles -->
+	<style name="AppTheme.Settings" parent="@android:style/Theme.DeviceDefault.Settings"/>
+	<style name="AppTheme.Dialog" parent="@android:style/Theme.DeviceDefault.Light.Dialog"/>
+	
+	<!-- Strings -->
 	<string name="app_name" translatable="false">RebootManager</string>
 	<string name="app_title">@string/app_name</string>
-	<string name="app_version" translatable="false">2</string>
+	<string name="app_version" translatable="false">3</string>
 	<string name="app_about">About the program</string>
 	
 	<string name="reboot_options">Options for restarting</string>
@@ -24,4 +29,9 @@
 	<string name="github_releases">Github Releases</string>
 	<string name="github_releases_summary">View all application assemblies on the Github (+ changelog)</string>
 	
+	<string name="check_root">Check root</string>
+	<string name="check_root_summary">Checking the presence of rights of superuser when the program is turned on</string>
+	
+	<string name="app_uninstall">Uninstall app</string>
+
 </resources>

@@ -14,6 +14,14 @@ import android.widget.*;
 import ru.codev01.app.rebootmanager.*;
 
 public class RebootSystemTile extends TileService {
+	
+	@Override
+	public void onTileAdded() {
+		super.onTileAdded();
+		Tile mTile = getQsTile();
+		mTile.setState(Tile.STATE_ACTIVE);
+	}
+	
 	@Override
 	public void onClick() {
 		super.onClick();

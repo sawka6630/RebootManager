@@ -9,18 +9,19 @@ import android.app.*;
 import android.content.*;
 import android.os.*;
 import android.preference.*;
-import ru.codev01.app.rebootmanager.*;
+import java.text.*;
+import java.util.*;
 
 import java.lang.Process;
+import android.widget.*;
 
 public class RebootManager extends PreferenceActivity {
-	
-	// mOptions - тут код, который будет закрывать активность приложения
-	void mOptions() { finishAndRemoveTask(); }
 	
 	private static String $mRebootSystem = "mRebootSystem";
 	private static String $mRebootRecovery = "mRebootRecovery";
 	private static String $mRebootBootloader = "mRebootBootloader";
+	
+	SharedPreferences mSharedPreferences;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +29,20 @@ public class RebootManager extends PreferenceActivity {
 		setTitle(R.string.reboot_options);
 		PreferenceScreen rootScreen = getPreferenceManager().createPreferenceScreen(this);
 		setPreferenceScreen(rootScreen);
+		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-		try { // проверка прав суперпользователя
-            Process exec = Runtime.getRuntime().exec(App.$cmdCheckRoot);
-        } catch (Exception e) {
-            Exception exception = e;
-			// если права не получены: отобразим AlertDialog с сообщением
-			dlgRootNoAccess(RebootManager.this);
-        }
-
+		Boolean mCheckRoot = mSharedPreferences.getBoolean("mCheckRoot", true);
+		
+		if (mCheckRoot == true) {
+			try { // проверка прав суперпользователя
+				Process exec = Runtime.getRuntime().exec(App.$cmdCheckRoot);
+			} catch (Exception e) {
+				Exception exception = e;
+				// если права не получены: отобразим AlertDialog с сообщением
+				dlgRootNoAccess(RebootManager.this);
+			}
+		}
+		
 		// создаем пункты (Preferences)
 		// пункт "Система"
 		Preference mRebootSystem = new Preference(this);
@@ -83,35 +89,10 @@ public class RebootManager extends PreferenceActivity {
 		builder.setIcon(R.mipmap.ic_launcher);
 		builder.setPositiveButton(R.string.exit_app, new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int id) {
-					mOptions();
+					finishAndRemoveTask();
 				}
 			});
 		AlertDialog alert = builder.create();
 		alert.show();
 	}
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-		mOptions();
-	}
-
-	@Override
-	protected void onStop() {
-		super.onStop();
-		mOptions();
-	}
-
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		mOptions();
-	}
-
-	@Override
-	public void onBackPressed() {
-		super.onBackPressed();
-		mOptions();
-	}
-	
 }
