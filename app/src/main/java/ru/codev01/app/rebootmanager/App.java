@@ -1,13 +1,15 @@
 /*!
  * @author      codev01 <codev01.private@gmail.com>
- * @copyright   Copyright (c) Ashab Kudzaev, 2019
+ * @copyright   Copyright (c) Haba Kudzaev, 2019
  */
 
 package ru.codev01.app.rebootmanager;
 
+import android.app.*;
 import android.content.*;
 import android.content.pm.*;
 import java.io.*;
+import ru.codev01.app.rebootmanager.*;
 
 public class App {
 	

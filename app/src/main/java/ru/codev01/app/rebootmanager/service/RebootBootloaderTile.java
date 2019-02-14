@@ -1,6 +1,6 @@
 /*!
  * @author      codev01 <codev01.private@gmail.com>
- * @copyright   Copyright (c) Ashab Kudzaev, 2019
+ * @copyright   Copyright (c) Haba Kudzaev, 2019
  */
 
 package ru.codev01.app.rebootmanager.service;
@@ -36,7 +36,7 @@ public class RebootBootloaderTile extends TileService {
 			builder.setCancelable(false);
 			builder.setPositiveButton(R.string.exit_app, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						// wtf
+						dialog.dismiss();
 					}
 				});
 			showDialog(builder.create());

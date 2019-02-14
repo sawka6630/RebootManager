@@ -1,6 +1,6 @@
 /*!
  * @author      codev01 <codev01.private@gmail.com>
- * @copyright   Copyright (c) Ashab Kudzaev, 2019
+ * @copyright   Copyright (c) Haba Kudzaev, 2019
  */
 
 package ru.codev01.app.rebootmanager;
@@ -9,11 +9,9 @@ import android.app.*;
 import android.content.*;
 import android.os.*;
 import android.preference.*;
-import java.text.*;
-import java.util.*;
+import ru.codev01.app.rebootmanager.*;
 
 import java.lang.Process;
-import android.widget.*;
 
 public class RebootManager extends PreferenceActivity {
 	
@@ -39,7 +37,7 @@ public class RebootManager extends PreferenceActivity {
 			} catch (Exception e) {
 				Exception exception = e;
 				// если права не получены: отобразим AlertDialog с сообщением
-				dlgRootNoAccess(RebootManager.this);
+				dlgRootNoAccess();
 			}
 		}
 		
@@ -81,7 +79,7 @@ public class RebootManager extends PreferenceActivity {
 	}
 
 	// если права рут не получены
-	public void dlgRootNoAccess(RebootManager rebootManager) {
+	public void dlgRootNoAccess() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(RebootManager.this);
 		builder.setTitle(R.string.root_noaccess_title);
 		builder.setMessage(R.string.root_noaccess_message);
@@ -95,4 +93,6 @@ public class RebootManager extends PreferenceActivity {
 		AlertDialog alert = builder.create();
 		alert.show();
 	}
+	
+	
 }

@@ -1,7 +1,7 @@
 <resources>
 
 	<string name="app_title">Перезагрузка</string>
-	<string name="app_about">О программе</string>
+	<string name="about">О программе</string>
 
 	<string name="reboot_options">Варианты перезагрузки</string>
 	<string name="reboot_system">Система</string>
@@ -23,6 +23,6 @@
 	<string name="check_root">Проверка при запуске</string>
 	<string name="check_root_summary">Проверка наличия прав суперпользователя, при запуске приложения</string>
 	
-	<string name="app_uninstall">Удалить программу</string>
+	<string name="settings">Настройки</string>
 	
 </resources>

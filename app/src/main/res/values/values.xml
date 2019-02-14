@@ -7,8 +7,9 @@
 	<!-- Strings -->
 	<string name="app_name" translatable="false">RebootManager</string>
 	<string name="app_title">@string/app_name</string>
-	<string name="app_version" translatable="false">3</string>
-	<string name="app_about">About the program</string>
+	<string name="app_version" translatable="false">4</string>
+	
+	<string name="about">About the program</string>
 	
 	<string name="reboot_options">Options for restarting</string>
 	<string name="reboot_system">Restart the system</string>
@@ -32,6 +33,6 @@
 	<string name="check_root">Check root</string>
 	<string name="check_root_summary">Checking the presence of rights of superuser when the program is turned on</string>
 	
-	<string name="app_uninstall">Uninstall app</string>
-
+	<string name="settings">Settings</string>
+	
 </resources>

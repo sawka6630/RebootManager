@@ -1,6 +1,6 @@
 /*!
  * @author      codev01 <codev01.private@gmail.com>
- * @copyright   Copyright (c) Ashab Kudzaev, 2019
+ * @copyright   Copyright (c) Haba Kudzaev, 2019
  */
 
 package ru.codev01.app.rebootmanager.activity;
@@ -14,11 +14,10 @@ import ru.codev01.app.rebootmanager.*;
 
 public class AboutActivity extends PreferenceActivity
 {
-	private static String $mAppVersion = "mAppVersion";
-	private static String $mGithubReleases = "mGithubReleases";
-	private static String $mCheckRoot = "mCheckRoot";
-	private static String $mAppUninstall = "mAppUninstall";
-	private static String $mDialogStyle = "mDialogStyle";
+	private String $mAppVersion = "mAppVersion";
+	private String $mGithubReleases = "mGithubReleases";
+	private String $mCheckRoot = "mCheckRoot";
+	private String $mSettings = "mSettings";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -32,7 +31,11 @@ public class AboutActivity extends PreferenceActivity
 		Preference mAppVersion = new Preference(this);
 		mAppVersion.setKey($mAppVersion);
 		mAppVersion.setTitle(R.string.app_name);
-		mAppVersion.setSummary(App.getApplicationVersion(AboutActivity.this));
+		if (BuildConfig.DEBUG == true) {
+			mAppVersion.setSummary(App.getApplicationVersion(AboutActivity.this) + " (debug)");
+		} else {
+			mAppVersion.setSummary(App.getApplicationVersion(AboutActivity.this));
+		}
 
 		// пункт Github Releases
 		Preference mGithubReleases = new Preference(this);
@@ -47,15 +50,14 @@ public class AboutActivity extends PreferenceActivity
 		mCheckRoot.setSummary(R.string.check_root_summary);
 		mCheckRoot.setDefaultValue(true);
 		
-		// пункт Удалить приложение
-		Preference mAppUninstall = new Preference(this);
-		mAppUninstall.setKey($mAppUninstall);
-		mAppUninstall.setTitle(R.string.app_uninstall);
+		PreferenceCategory mSettings = new PreferenceCategory(this);
+		mSettings.setKey($mSettings);
+		mSettings.setTitle(R.string.settings);
 		
 		// порядок элементов на экране
 		/* 1 */ rootScreen.addPreference(mAppVersion);
 		/* 2 */ rootScreen.addPreference(mGithubReleases);
-		/* 3 */ rootScreen.addPreference(mAppUninstall);
+		/* 3 */ rootScreen.addPreference(mSettings);
 		/* 4 */ rootScreen.addPreference(mCheckRoot);
 	}
 
@@ -63,17 +65,12 @@ public class AboutActivity extends PreferenceActivity
 	public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
 		String itemKey = pref.getKey();
 		if ($mAppVersion.equals(itemKey)) { // реакция на нажатие на версию приложения
-			Toast mToast = Toast.makeText(getApplicationContext(), "developed by codev01", Toast.LENGTH_LONG);
-			mToast.show();
+			Toast.makeText(getApplicationContext(), "developed by codev01 for " + Build.MANUFACTURER, Toast.LENGTH_LONG).show();
 		} else if ($mGithubReleases.equals(itemKey)) { // реакция на нажатие Github Releases
 			Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://github.com/codev01/RebootManager"));
+            intent.setData(Uri.parse("https://github.com/codev01/RebootManager/releases"));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-		} else if ($mAppUninstall.equals(itemKey)) {
-			Uri packageURI = Uri.parse("package:".concat(App.getApplicationPackage(AboutActivity.this))); 
-			Intent uninstallIntent = new Intent(Intent.ACTION_DELETE, packageURI); 
-			startActivity(uninstallIntent);
-		}return true;
+		} return true;
 	}
 }

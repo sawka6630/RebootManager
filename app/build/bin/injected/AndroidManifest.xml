@@ -2,7 +2,7 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="ru.codev01.app.rebootmanager"
-	android:versionCode="190204"
+	android:versionCode="190215"
 	android:versionName="@string/app_version">
 
 	<uses-sdk
@@ -57,7 +57,7 @@
 			android:launchMode="singleInstance"
 			android:noHistory="true"
 			android:excludeFromRecents="true"
-			android:label="@string/app_about"
+			android:label="@string/about"
 			android:name="ru.codev01.app.rebootmanager.activity.AboutActivity">
 
 			<intent-filter>
@@ -73,6 +73,9 @@
 
 				<category
 					android:name="android.intent.category.DEFAULT"/>
+
+				<category
+					android:name="android.intent.category.PREFERENCE"/>
 
 			</intent-filter>
 
@@ -95,6 +98,7 @@
 		</service>
 
 		<service
+			android:enabled="true"
 			android:name=".service.RebootRecoveryTile"
 			android:icon="@drawable/ic_recovery"
 			android:label="@string/reboot_recovery_tile"
@@ -110,6 +114,7 @@
 		</service>
 
 		<service
+			android:enabled="true"
 			android:name=".service.RebootBootloaderTile"
 			android:icon="@drawable/ic_bootloader"
 			android:label="@string/reboot_bootloader_tile"

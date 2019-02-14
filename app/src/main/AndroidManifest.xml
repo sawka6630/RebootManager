@@ -4,10 +4,10 @@
 	package="ru.codev01.app.rebootmanager" >
 
 	<original-package android:name="ru.codev01.app.rebootmanager" />
-	
+
 	<uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
     <uses-permission android:name="android.permission.REBOOT"/>
- 
+
     <application
 		android:allowBackup="true"
 		android:hardwareAccelerated="true"
@@ -17,6 +17,7 @@
 		android:screenOrientation="portrait"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/AppTheme.Dialog">
+		
         <activity
 			android:finishOnCloseSystemDialogs="true" 
 			android:launchMode="singleInstance"
@@ -33,18 +34,20 @@
 				android:name="android.app.shortcuts"
 				android:resource="@xml/app_shortcuts" />
         </activity>
+		
 		<activity
 			android:finishOnCloseSystemDialogs="true" 
 			android:launchMode="singleInstance"
 			android:noHistory="true"
 			android:excludeFromRecents="true"
-			android:label="@string/app_about"
+			android:label="@string/about"
 			android:name="ru.codev01.app.rebootmanager.activity.AboutActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.APPLICATION_PREFERENCES" />
 				<category android:name="com.cyanogenmod.category.LAUNCHER_PREFERENCES" />
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.PREFERENCE" />
 			</intent-filter>
 		</activity>
 
@@ -59,7 +62,9 @@
 				<action android:name="android.service.quicksettings.action.QS_TILE"/>
 			</intent-filter>
 		</service>
+		
 		<service
+			android:enabled="true"
 			android:name=".service.RebootRecoveryTile"
 			android:icon="@drawable/ic_recovery"
 			android:label="@string/reboot_recovery_tile"
@@ -68,7 +73,9 @@
 				<action android:name="android.service.quicksettings.action.QS_TILE"/>
 			</intent-filter>
 		</service>
+		
 		<service
+			android:enabled="true"
 			android:name=".service.RebootBootloaderTile"
 			android:icon="@drawable/ic_bootloader"
 			android:label="@string/reboot_bootloader_tile"
@@ -77,6 +84,7 @@
 				<action android:name="android.service.quicksettings.action.QS_TILE"/>
 			</intent-filter>
 		</service>
+
     </application>
 
 </manifest>

@@ -1,7 +1,8 @@
 <resources>
 
 	<string name="app_title">Перезавантажити</string>
-	<string name="app_about">Про програму</string>
+	
+	<string name="about">Про програму</string>
 
 	<string name="reboot_options">Параметр перезавантаження</string>
 	<string name="reboot_system">Система</string>
@@ -20,5 +21,9 @@
 	<string name="github_releases">Github Releases</string>
 	<string name="github_releases_summary">Переглянути всі збори додатків на веб-сайт Github (+ історія змін у проекті)</string>
 
-	<string name="app_uninstall">Видалити програму</string>
+	<string name="check_root">Проверка при запуске</string>
+	<string name="check_root_summary">Проверка наличия прав суперпользователя, при запуске приложения</string>
+	
+	<string name="settings">Параметри</string>
+	
 </resources>

@@ -3,8 +3,8 @@
 	<shortcut
 		android:enabled="true"
 		android:icon="@mipmap/ic_launcher"
-		android:shortcutId="app_about"
-		android:shortcutShortLabel="@string/app_about">
+		android:shortcutId="about"
+		android:shortcutShortLabel="@string/about">
 		<intent
 			android:action="android.intent.action.MAIN"
 			android:targetClass="ru.codev01.app.rebootmanager.activity.AboutActivity"

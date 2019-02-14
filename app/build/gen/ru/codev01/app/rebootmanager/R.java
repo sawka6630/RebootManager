@@ -19,12 +19,11 @@ public final class R {
         public static final int ic_launcher=0x7f030000;
     }
     public static final class string {
-        public static final int app_about=0x7f060003;
+        public static final int about=0x7f060003;
         /**  Strings 
          */
         public static final int app_name=0x7f060000;
         public static final int app_title=0x7f060001;
-        public static final int app_uninstall=0x7f060015;
         public static final int app_version=0x7f060002;
         public static final int check_root=0x7f060013;
         public static final int check_root_summary=0x7f060014;
@@ -43,6 +42,7 @@ public final class R {
         public static final int reboot_system_tile=0x7f060006;
         public static final int root_noaccess_message=0x7f06000f;
         public static final int root_noaccess_title=0x7f06000e;
+        public static final int settings=0x7f060015;
     }
     public static final class style {
         public static final int AppTheme_Dialog=0x7f050001;
