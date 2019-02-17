@@ -8,7 +8,7 @@ android {
         applicationId "ru.codev01.app.rebootmanager"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 190215
+        versionCode 190217
         versionName "@string/app_version"
     }
     buildTypes {
