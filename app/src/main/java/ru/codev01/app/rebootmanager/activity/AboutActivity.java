@@ -31,12 +31,7 @@ public class AboutActivity extends PreferenceActivity {
 		Preference mAppVersion = new Preference(this);
 		mAppVersion.setKey($mAppVersion);
 		mAppVersion.setTitle(R.string.application_name);
-		
-		if (BuildConfig.DEBUG == true) {
-			mAppVersion.setSummary(App.getApplicationVersion(AboutActivity.this) + " (debug)");
-		} else {
-			mAppVersion.setSummary(App.getApplicationVersion(AboutActivity.this));
-		}
+		mAppVersion.setSummary(App.getApplicationVersion(this));
 
 		// пункт Github Releases
 		Preference mGithubReleases = new Preference(this);
