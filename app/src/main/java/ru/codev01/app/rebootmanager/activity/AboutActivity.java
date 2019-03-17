@@ -12,17 +12,17 @@ import android.preference.*;
 import android.widget.*;
 import ru.codev01.app.rebootmanager.*;
 
-public class AboutActivity extends PreferenceActivity
-{
+public class AboutActivity extends PreferenceActivity {
+	
 	private String $mAppVersion = "mAppVersion";
 	private String $mGithubReleases = "mGithubReleases";
 	private String $mCheckRoot = "mCheckRoot";
 	private String $mSettings = "mSettings";
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		PreferenceScreen rootScreen = getPreferenceManager().createPreferenceScreen(this);
 		setPreferenceScreen(rootScreen);
 
@@ -30,7 +30,8 @@ public class AboutActivity extends PreferenceActivity
 		// пункт с версией приложения
 		Preference mAppVersion = new Preference(this);
 		mAppVersion.setKey($mAppVersion);
-		mAppVersion.setTitle(R.string.app_name);
+		mAppVersion.setTitle(R.string.application_name);
+		
 		if (BuildConfig.DEBUG == true) {
 			mAppVersion.setSummary(App.getApplicationVersion(AboutActivity.this) + " (debug)");
 		} else {
@@ -59,6 +60,7 @@ public class AboutActivity extends PreferenceActivity
 		/* 2 */ rootScreen.addPreference(mGithubReleases);
 		/* 3 */ rootScreen.addPreference(mSettings);
 		/* 4 */ rootScreen.addPreference(mCheckRoot);
+		
 	}
 
 	@Override // реакция на нажатие пунктов
@@ -66,11 +68,17 @@ public class AboutActivity extends PreferenceActivity
 		String itemKey = pref.getKey();
 		if ($mAppVersion.equals(itemKey)) { // реакция на нажатие на версию приложения
 			Toast.makeText(getApplicationContext(), "developed by codev01 for " + Build.MANUFACTURER, Toast.LENGTH_LONG).show();
+			jumpBrowser("https://codev01.github.io");
 		} else if ($mGithubReleases.equals(itemKey)) { // реакция на нажатие Github Releases
-			Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://github.com/codev01/RebootManager/releases"));
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+			jumpBrowser("https://github.com/codev01/RebootManager/releases");
 		} return true;
 	}
+	
+	private void jumpBrowser(String link) {
+		Intent i = new Intent(Intent.ACTION_VIEW);
+		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		i.setData(Uri.parse(link));
+		startActivity(i);
+	}
+	
 }

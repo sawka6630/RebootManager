@@ -24,9 +24,12 @@ public class RebootManager extends PreferenceActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setTitle(R.string.reboot_options);
+		
 		PreferenceScreen rootScreen = getPreferenceManager().createPreferenceScreen(this);
+		
+		setTitle(R.string.reboot_options);
 		setPreferenceScreen(rootScreen);
+		
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
 		Boolean mCheckRoot = mSharedPreferences.getBoolean("mCheckRoot", true);
@@ -64,17 +67,18 @@ public class RebootManager extends PreferenceActivity {
 		/* 1 */ rootScreen.addPreference(mRebootSystem);
 		/* 2 */ rootScreen.addPreference(mRebootRecovery);
 		/* 3 */ rootScreen.addPreference(mRebootBootloader);
+		
 	}
 	
 	@Override // реакция на нажатие пунктов
 	public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
 		String itemKey = pref.getKey();
 		if ($mRebootSystem.equals(itemKey)) { // реакция на нажатие "Система"
-			App.actionRebootSystem();
+			App.actionReboot(App.$cmdRebootSystem, this);
 		} else if ($mRebootRecovery.equals(itemKey)) { // реакция на нажатие "Режим восстановления"
-			App.actionRebootRecovery();
+			App.actionReboot(App.$cmdRebootRecovery, this);
 		} else if ($mRebootBootloader.equals(itemKey)) { // реакция на нажатие "Загрузчик"
-			App.actionRebootBootloader();
+			App.actionReboot(App.$cmdRebootBootloader, this);
 		} return true;
 	}
 

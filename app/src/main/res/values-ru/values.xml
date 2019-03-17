@@ -21,7 +21,7 @@
 	<string name="github_releases_summary">Просмотреть все сборки приложения на сайте Github (+ историю изменений в проекте)</string>
 
 	<string name="check_root">Проверка при запуске</string>
-	<string name="check_root_summary">Проверка наличия прав суперпользователя, при запуске приложения</string>
+	<string name="check_root_summary">Проверка наличия прав суперпользователя при запуске приложения</string>
 	
 	<string name="settings">Настройки</string>
 	

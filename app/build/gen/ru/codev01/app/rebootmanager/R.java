@@ -20,11 +20,12 @@ public final class R {
     }
     public static final class string {
         public static final int about=0x7f060003;
+        public static final int app_title=0x7f060016;
         /**  Strings 
          */
-        public static final int app_name=0x7f060000;
-        public static final int app_title=0x7f060001;
-        public static final int app_version=0x7f060002;
+        public static final int application_name=0x7f060000;
+        public static final int application_title=0x7f060001;
+        public static final int application_version=0x7f060002;
         public static final int check_root=0x7f060013;
         public static final int check_root_summary=0x7f060014;
         public static final int exit_app=0x7f060010;

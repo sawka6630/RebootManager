@@ -58,25 +58,9 @@ public class App {
         }
     }
 	
-	public static void actionRebootSystem() {
+	public static void actionReboot(String cmd, Context ctx) {
 		try {
-			Runtime.getRuntime().exec($cmdRebootSystem);
-		} catch (Exception exc) {
-            exc.printStackTrace();
-        }
-	}
-
-	public static void actionRebootRecovery() { 
-		try {
-			Runtime.getRuntime().exec($cmdRebootRecovery);
-		} catch (Exception exc) {
-            exc.printStackTrace();
-        }
-	}
-
-	public static void actionRebootBootloader() {
-		try {
-			Runtime.getRuntime().exec($cmdRebootBootloader);
+			Runtime.getRuntime().exec(cmd);
 		} catch (Exception exc) {
             exc.printStackTrace();
         }
