@@ -37,19 +37,19 @@ public class RebootManager extends PreferenceActivity {
 		Preference mRebootSystem = new Preference(this);
 		mRebootSystem.setKey(getString(R.string.reboot_system));
 		mRebootSystem.setTitle(R.string.reboot_system);
-		mRebootSystem.setSummary(R.string.reboot_system_summary);
+		mRebootSystem.setSummary(R.string.reboot_system_desc);
 		
 		// пункт "Режим восстановления"
 		Preference mRebootRecovery = new Preference(this);
 		mRebootRecovery.setKey(getString(R.string.reboot_recovery));
 		mRebootRecovery.setTitle(R.string.reboot_recovery);
-		mRebootRecovery.setSummary(R.string.reboot_recovery_summary);
+		mRebootRecovery.setSummary(R.string.reboot_recovery_desc);
 
 		// пункт "Загрузчик"
 		Preference mRebootBootloader = new Preference(this);
 		mRebootBootloader.setKey(getString(R.string.reboot_bootloader));
 		mRebootBootloader.setTitle(R.string.reboot_bootloader);
-		mRebootBootloader.setSummary(R.string.reboot_bootloader_summary);
+		mRebootBootloader.setSummary(R.string.reboot_bootloader_desc);
 
 		// порядок элементов на экране
 		/* 1 */ rootScreen.addPreference(mRebootSystem);
@@ -83,8 +83,8 @@ public class RebootManager extends PreferenceActivity {
 	// если права рут не получены
 	void dlgRootNoAccess() {
 		AlertDialog.Builder b = new AlertDialog.Builder(this);
-		b.setTitle(R.string.root_noaccess_title);
-		b.setMessage(R.string.root_noaccess_message);
+		b.setTitle(R.string.root_noaccess);
+		b.setMessage(R.string.root_noaccess_desc);
 		b.setCancelable(false);
 		b.setIcon(R.mipmap.ic_launcher);
 		b.setPositiveButton(R.string.exit_app, new DialogInterface.OnClickListener() {

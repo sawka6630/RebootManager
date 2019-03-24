@@ -32,19 +32,19 @@ public class AboutActivity extends PreferenceActivity {
 		Preference mGithubReleases = new Preference(this);
 		mGithubReleases.setKey(getString(R.string.github_releases));
 		mGithubReleases.setTitle(R.string.github_releases);
-		mGithubReleases.setSummary(R.string.github_releases_summary);
+		mGithubReleases.setSummary(R.string.github_releases_desc);
 
 		// пункт Play Store
 		Preference mPlayStore = new Preference(this);
 		mPlayStore.setKey(getString(R.string.playstore));
 		mPlayStore.setTitle(R.string.playstore);
-		mPlayStore.setSummary(R.string.playstore_summary);
+		mPlayStore.setSummary(R.string.playstore_desc);
 
 		// пункт Scan root
 		SwitchPreference mCheckRoot = new SwitchPreference(this);
 		mCheckRoot.setKey(getString(R.string.check_root));
 		mCheckRoot.setTitle(R.string.check_root);
-		mCheckRoot.setSummary(R.string.check_root_summary);
+		mCheckRoot.setSummary(R.string.check_root_desc);
 		mCheckRoot.setDefaultValue(true);
 		
 		// категория настройки

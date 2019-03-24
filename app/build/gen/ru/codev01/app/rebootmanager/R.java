@@ -26,24 +26,24 @@ public final class R {
         public static final int app_title=0x7f060001;
         public static final int application_title=0x7f060017;
         public static final int check_root=0x7f060014;
-        public static final int check_root_summary=0x7f060015;
+        public static final int check_root_desc=0x7f060015;
         public static final int exit_app=0x7f06000f;
         public static final int github_releases=0x7f060010;
-        public static final int github_releases_summary=0x7f060011;
+        public static final int github_releases_desc=0x7f060011;
         public static final int playstore=0x7f060012;
-        public static final int playstore_summary=0x7f060013;
+        public static final int playstore_desc=0x7f060013;
         public static final int reboot_bootloader=0x7f06000a;
-        public static final int reboot_bootloader_summary=0x7f06000b;
+        public static final int reboot_bootloader_desc=0x7f06000b;
         public static final int reboot_bootloader_tile=0x7f06000c;
         public static final int reboot_options=0x7f060003;
         public static final int reboot_recovery=0x7f060007;
-        public static final int reboot_recovery_summary=0x7f060009;
+        public static final int reboot_recovery_desc=0x7f060009;
         public static final int reboot_recovery_tile=0x7f060008;
         public static final int reboot_system=0x7f060004;
-        public static final int reboot_system_summary=0x7f060006;
+        public static final int reboot_system_desc=0x7f060006;
         public static final int reboot_system_tile=0x7f060005;
-        public static final int root_noaccess_message=0x7f06000e;
-        public static final int root_noaccess_title=0x7f06000d;
+        public static final int root_noaccess=0x7f06000d;
+        public static final int root_noaccess_desc=0x7f06000e;
         public static final int settings=0x7f060016;
     }
     public static final class style {

@@ -13,27 +13,27 @@
 	<string name="reboot_options">Options for restarting</string>
 	<string name="reboot_system">Restart the system</string>
 	<string name="reboot_system_tile">Restart system</string>
-	<string name="reboot_system_summary">Turning off the device and the device (conventional reboot)</string>
+	<string name="reboot_system_desc">Turning off the device and the device (conventional reboot)</string>
 	<string name="reboot_recovery">Recovery mode</string>
 	<string name="reboot_recovery_tile">@string/reboot_recovery</string>
-	<string name="reboot_recovery_summary">Turning off and transition to recovery mode</string>
+	<string name="reboot_recovery_desc">Turning off and transition to recovery mode</string>
 	<string name="reboot_bootloader">Bootloader</string>
-	<string name="reboot_bootloader_summary">Turning off and transition to bootloader</string>
+	<string name="reboot_bootloader_desc">Turning off and transition to bootloader</string>
 	<string name="reboot_bootloader_tile">Bootloader</string>
 
-	<string name="root_noaccess_title">@string/app_name</string>
-	<string name="root_noaccess_message"><b>Error:</b> it was not possible to obtain the rights of the superuser that are necessary for the correct operation of the program.</string>
+	<string name="root_noaccess">@string/app_name</string>
+	<string name="root_noaccess_desc"><b>Error:</b> it was not possible to obtain the rights of the superuser that are necessary for the correct operation of the program.</string>
 	
 	<string name="exit_app">Exit</string>
 	
 	<string name="github_releases">Github Releases</string>
-	<string name="github_releases_summary">View all application assemblies on the Github (+ changelog)</string>
+	<string name="github_releases_desc">View all application assemblies on the Github (+ changelog)</string>
 	
 	<string name="playstore">Play Store</string>
-	<string name="playstore_summary">Rate my app. This stimulates further application development (+ app updates)</string>
+	<string name="playstore_desc">Rate my app. This stimulates further application development (+ app updates)</string>
 	
 	<string name="check_root">Check root</string>
-	<string name="check_root_summary">Checking the presence of rights of superuser when the program is turned on</string>
+	<string name="check_root_desc">Checking the presence of rights of superuser when the program is turned on</string>
 	
 	<string name="settings">Settings</string>
 	

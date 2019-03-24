@@ -6,26 +6,26 @@
 
 	<string name="reboot_options">Параметр перезавантаження</string>
 	<string name="reboot_system">Система</string>
-	<string name="reboot_system_summary">Вимкніть систему та ввімкнемося</string>
+	<string name="reboot_system_desc">Вимкніть систему та ввімкнемося</string>
 	<string name="reboot_system_tile">Перезапустити систему</string>
 	<string name="reboot_recovery">Режим відновлення</string>
-	<string name="reboot_recovery_summary">Вимкнення та перехід до режиму відновлення</string>
+	<string name="reboot_recovery_desc">Вимкнення та перехід до режиму відновлення</string>
 	<string name="reboot_bootloader">Bootloader</string>
-	<string name="reboot_bootloader_summary">Вимкнення та перехід на режим завантаження Bootloader</string>
+	<string name="reboot_bootloader_desc">Вимкнення та перехід на режим завантаження Bootloader</string>
 	<string name="reboot_bootloader_tile">@string/reboot_bootloader</string>
 
-	<string name="root_noaccess_message"><b>Помилку:</b> не вдалося отримати кореневі права.</string>
+	<string name="root_noaccess_desc"><b>Помилку:</b> не вдалося отримати кореневі права.</string>
 
 	<string name="exit_app">Вийди з додатка</string>
 
 	<string name="github_releases">Github Releases</string>
-	<string name="github_releases_summary">Переглянути всі збори додатків на веб-сайт Github (+ історія змін у проекті)</string>
+	<string name="github_releases_desc">Переглянути всі збори додатків на веб-сайт Github (+ історія змін у проекті)</string>
 
 	<string name="playstore">Play Store</string>
-	<string name="playstore_summary">Залишити відгук і оцінити утиліту в магазині додатків Google Play Store (+ оновлення утиліти)</string>
+	<string name="playstore_desc">Залишити відгук і оцінити утиліту в магазині додатків Google Play Store (+ оновлення утиліти)</string>
 	
 	<string name="check_root">Перевірте на запуску</string>
-	<string name="check_root_summary">Перевірка наявності права ROOT, коли розпочинається програма</string>
+	<string name="check_root_desc">Перевірка наявності права ROOT, коли розпочинається програма</string>
 	
 	<string name="settings">Параметри</string>
 	
