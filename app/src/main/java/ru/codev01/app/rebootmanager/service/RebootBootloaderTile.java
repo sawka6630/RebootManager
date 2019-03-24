@@ -18,14 +18,14 @@ public class RebootBootloaderTile extends TileService {
 	@Override
 	public void onTileAdded() {
 		super.onTileAdded();
-		Tile mTile = getQsTile();
-		mTile.setState(Tile.STATE_ACTIVE);
+		Tile t = getQsTile();
+		t.setState(Tile.STATE_ACTIVE);
 	}
 	
 	@Override
 	public void onClick() {
 		super.onClick();
-		App.actionReboot(App.$cmdRebootBootloader, this);
+		App.suCmd(App.$cmdRebootBootloader);
 	}
 	
 }

@@ -2,12 +2,12 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="ru.codev01.app.rebootmanager"
-	android:versionCode="190317"
-	android:versionName="@string/application_version">
+	android:versionCode="190324"
+	android:versionName="6">
 
 	<uses-sdk
 		android:minSdkVersion="14"
-		android:targetSdkVersion="21"/>
+		android:targetSdkVersion="26"/>
 
 	<original-package
 		android:name="ru.codev01.app.rebootmanager"/>
@@ -23,7 +23,7 @@
 		android:hardwareAccelerated="true"
 		android:noHistory="true"
 		android:supportsRtl="true"
-		android:label="@string/application_name"
+		android:label="@string/app_name"
 		android:screenOrientation="portrait"
 		android:icon="@mipmap/ic_launcher"
 		android:theme="@style/AppTheme.Dialog">

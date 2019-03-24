@@ -18,47 +18,20 @@ public class App {
 	public static String $cmdRebootBootloader = "su -c reboot bootloader";
 	public static String $cmdCheckRoot = "su";
 	
-	public static String getApplicationVersion(Context ctx) {
+	public static String getAppVersion(Context c) {
 		try {
-			PackageManager pacman = ctx.getPackageManager();
-			PackageInfo pacinf = pacman.getPackageInfo(ctx.getPackageName(), 0);
-			String app_version_name = pacinf.versionName;
-			int app_version_code = pacinf.versionCode;
-			return app_version_name + "." + app_version_code;
+			PackageManager pm = c.getPackageManager();
+			PackageInfo pi = pm.getPackageInfo(c.getPackageName(), 0);
+			String verName = pi.versionName;
+			int verCode = pi.versionCode;
+			return verName + "." + verCode;
 		} catch (Exception exc) {
 			exc.printStackTrace();
-			return "log: error#App.java>getApplicationVersion();";
+			return "error: getAppVersion();";
 		}
 	}
 
-	public static String getApplicationPackage(Context ctx) {
-		try {
-			PackageManager pacman = ctx.getPackageManager();
-			PackageInfo pacinf = pacman.getPackageInfo(ctx.getPackageName(), 0);
-			String app_package_name = pacinf.packageName;
-			return app_package_name;
-		} catch (Exception exc) {
-			exc.printStackTrace();
-			return "log: error#App.java>getApplicationPackage();";
-		}
-	}
-	
-	public static String getProp(String prop) {
-        try {
-            Process mProcess = Runtime.getRuntime().exec("getprop " + prop);
-            BufferedReader mBufferedReader = new BufferedReader(new InputStreamReader(mProcess.getInputStream()));
-            StringBuilder log = new StringBuilder();
-            String line;
-            while ((line = mBufferedReader.readLine()) != null) {
-                log.append(line);
-            }
-            return log.toString();
-        } catch (IOException e) {
-            return "log: error#App.java>getProp();";
-        }
-    }
-	
-	public static void actionReboot(String cmd, Context ctx) {
+	public static void suCmd(String cmd) {
 		try {
 			Runtime.getRuntime().exec(cmd);
 		} catch (Exception exc) {

@@ -15,12 +15,6 @@ import java.lang.Process;
 
 public class RebootManager extends PreferenceActivity {
 	
-	private static String $mRebootSystem = "mRebootSystem";
-	private static String $mRebootRecovery = "mRebootRecovery";
-	private static String $mRebootBootloader = "mRebootBootloader";
-	
-	SharedPreferences mSharedPreferences;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,36 +24,30 @@ public class RebootManager extends PreferenceActivity {
 		setTitle(R.string.reboot_options);
 		setPreferenceScreen(rootScreen);
 		
-		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-		Boolean mCheckRoot = mSharedPreferences.getBoolean("mCheckRoot", true);
+		Boolean mCheckRoot = mSharedPrefs.getBoolean(getString(R.string.check_root), true);
 		
-		if (mCheckRoot == true) {
-			try { // проверка прав суперпользователя
-				Process exec = Runtime.getRuntime().exec(App.$cmdCheckRoot);
-			} catch (Exception e) {
-				Exception exception = e;
-				// если права не получены: отобразим AlertDialog с сообщением
-				dlgRootNoAccess();
-			}
+		if (mCheckRoot) {
+			checkRootAccess();
 		}
 		
 		// создаем пункты (Preferences)
 		// пункт "Система"
 		Preference mRebootSystem = new Preference(this);
-		mRebootSystem.setKey($mRebootSystem);
+		mRebootSystem.setKey(getString(R.string.reboot_system));
 		mRebootSystem.setTitle(R.string.reboot_system);
 		mRebootSystem.setSummary(R.string.reboot_system_summary);
 		
 		// пункт "Режим восстановления"
 		Preference mRebootRecovery = new Preference(this);
-		mRebootRecovery.setKey($mRebootRecovery);
+		mRebootRecovery.setKey(getString(R.string.reboot_recovery));
 		mRebootRecovery.setTitle(R.string.reboot_recovery);
 		mRebootRecovery.setSummary(R.string.reboot_recovery_summary);
 
 		// пункт "Загрузчик"
 		Preference mRebootBootloader = new Preference(this);
-		mRebootBootloader.setKey($mRebootBootloader);
+		mRebootBootloader.setKey(getString(R.string.reboot_bootloader));
 		mRebootBootloader.setTitle(R.string.reboot_bootloader);
 		mRebootBootloader.setSummary(R.string.reboot_bootloader_summary);
 
@@ -73,30 +61,39 @@ public class RebootManager extends PreferenceActivity {
 	@Override // реакция на нажатие пунктов
 	public boolean onPreferenceTreeClick(PreferenceScreen prefScreen, Preference pref) {
 		String itemKey = pref.getKey();
-		if ($mRebootSystem.equals(itemKey)) { // реакция на нажатие "Система"
-			App.actionReboot(App.$cmdRebootSystem, this);
-		} else if ($mRebootRecovery.equals(itemKey)) { // реакция на нажатие "Режим восстановления"
-			App.actionReboot(App.$cmdRebootRecovery, this);
-		} else if ($mRebootBootloader.equals(itemKey)) { // реакция на нажатие "Загрузчик"
-			App.actionReboot(App.$cmdRebootBootloader, this);
+		if (getString(R.string.reboot_system).equals(itemKey)) { // реакция на нажатие "Система"
+			App.suCmd(App.$cmdRebootSystem);
+		} else if (getString(R.string.reboot_recovery).equals(itemKey)) { // реакция на нажатие "Режим восстановления"
+			App.suCmd(App.$cmdRebootRecovery);
+		} else if (getString(R.string.reboot_bootloader).equals(itemKey)) { // реакция на нажатие "Загрузчик"
+			App.suCmd(App.$cmdRebootBootloader);
 		} return true;
+	}
+	
+	// проверка на наличие рут
+	void checkRootAccess() {
+		try { // проверка прав суперпользователя
+			Process exec = Runtime.getRuntime().exec(App.$cmdCheckRoot);
+		} catch (Exception e) {
+			// если права не получены: отобразим AlertDialog с сообщением
+			dlgRootNoAccess();
+		}
 	}
 
 	// если права рут не получены
-	public void dlgRootNoAccess() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(RebootManager.this);
-		builder.setTitle(R.string.root_noaccess_title);
-		builder.setMessage(R.string.root_noaccess_message);
-		builder.setCancelable(false);
-		builder.setIcon(R.mipmap.ic_launcher);
-		builder.setPositiveButton(R.string.exit_app, new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
+	void dlgRootNoAccess() {
+		AlertDialog.Builder b = new AlertDialog.Builder(this);
+		b.setTitle(R.string.root_noaccess_title);
+		b.setMessage(R.string.root_noaccess_message);
+		b.setCancelable(false);
+		b.setIcon(R.mipmap.ic_launcher);
+		b.setPositiveButton(R.string.exit_app, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface di, int id) {
 					finishAndRemoveTask();
 				}
 			});
-		AlertDialog alert = builder.create();
-		alert.show();
+		AlertDialog a = b.create();
+		a.show();
 	}
-	
 	
 }

@@ -1,6 +1,7 @@
 <resources>
 
-	<string name="app_title">Перезагрузка</string>
+	<string name="application_title">Перезагрузка</string>
+	
 	<string name="about">О программе</string>
 
 	<string name="reboot_options">Варианты перезагрузки</string>
@@ -18,10 +19,13 @@
 	<string name="exit_app">Выйти из приложения</string>
 
 	<string name="github_releases">Github Releases</string>
-	<string name="github_releases_summary">Просмотреть все сборки приложения на сайте Github (+ историю изменений в проекте)</string>
+	<string name="github_releases_summary">Просмотреть все сборки приложения на сайте Github (+ история изменений в проекте)</string>
 
+	<string name="playstore">Play Маркет</string>
+	<string name="playstore_summary">Оставить отзыв и оценить утилиту в магазине приложений Google Play Store (+ обновления утилиты)</string>
+	
 	<string name="check_root">Проверка при запуске</string>
-	<string name="check_root_summary">Проверка наличия прав суперпользователя при запуске приложения</string>
+	<string name="check_root_summary">Проверять наличия прав суперпользователя при запуске приложения</string>
 	
 	<string name="settings">Настройки</string>
 	

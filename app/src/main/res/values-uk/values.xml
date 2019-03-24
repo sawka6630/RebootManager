@@ -1,6 +1,7 @@
 <resources>
 
-	<string name="app_title">Перезавантажити</string>
+	<string name="application_title">Перезавантажити</string>
+	
 	<string name="about">Про програму</string>
 
 	<string name="reboot_options">Параметр перезавантаження</string>
@@ -20,6 +21,9 @@
 	<string name="github_releases">Github Releases</string>
 	<string name="github_releases_summary">Переглянути всі збори додатків на веб-сайт Github (+ історія змін у проекті)</string>
 
+	<string name="playstore">Play Store</string>
+	<string name="playstore_summary">Залишити відгук і оцінити утиліту в магазині додатків Google Play Store (+ оновлення утиліти)</string>
+	
 	<string name="check_root">Перевірте на запуску</string>
 	<string name="check_root_summary">Перевірка наявності права ROOT, коли розпочинається програма</string>
 	

@@ -5,9 +5,8 @@
 	<style name="AppTheme.Dialog" parent="@android:style/Theme.DeviceDefault.Light.Dialog"/>
 	
 	<!-- Strings -->
-	<string name="application_name" translatable="false">RebootManager</string>
-	<string name="application_title">@string/application_name</string>
-	<string name="application_version" translatable="false">5</string>
+	<string name="app_name" translatable="false">RebootManager</string>
+	<string name="app_title">@string/app_name</string>
 	
 	<string name="about">About the program</string>
 	
@@ -22,13 +21,16 @@
 	<string name="reboot_bootloader_summary">Turning off and transition to bootloader</string>
 	<string name="reboot_bootloader_tile">Bootloader</string>
 
-	<string name="root_noaccess_title">@string/application_name</string>
+	<string name="root_noaccess_title">@string/app_name</string>
 	<string name="root_noaccess_message"><b>Error:</b> it was not possible to obtain the rights of the superuser that are necessary for the correct operation of the program.</string>
 	
 	<string name="exit_app">Exit</string>
 	
 	<string name="github_releases">Github Releases</string>
 	<string name="github_releases_summary">View all application assemblies on the Github (+ changelog)</string>
+	
+	<string name="playstore">Play Store</string>
+	<string name="playstore_summary">Rate my app. This stimulates further application development (+ app updates)</string>
 	
 	<string name="check_root">Check root</string>
 	<string name="check_root_summary">Checking the presence of rights of superuser when the program is turned on</string>

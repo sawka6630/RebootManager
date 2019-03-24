@@ -7,9 +7,9 @@ android {
     defaultConfig {
         applicationId "ru.codev01.app.rebootmanager"
         minSdkVersion 14
-        targetSdkVersion 21
-        versionCode 190317
-        versionName "@string/application_version"
+        targetSdkVersion 26
+        versionCode 190324
+        versionName "6"
     }
     buildTypes {
         release {
