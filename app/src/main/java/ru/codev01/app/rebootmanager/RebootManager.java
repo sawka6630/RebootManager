@@ -9,7 +9,7 @@ import android.app.*;
 import android.content.*;
 import android.os.*;
 import android.preference.*;
-import android.util.*;
+import ru.codev01.app.rebootmanager.*;
 
 import java.lang.Process;
 

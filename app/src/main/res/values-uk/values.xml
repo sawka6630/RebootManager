@@ -27,6 +27,12 @@
 	<string name="check_root">Перевірте на запуску</string>
 	<string name="check_root_desc">Перевірка наявності права ROOT, коли розпочинається програма</string>
 	
+	<string name="hide_app_icon">Приховати іконку з меню</string>
+	<string name="hide_app_icon_desc">Приховати значок утиліти з меню запуску встановлених додатків</string>
+	<string name="hide_app_icon_dialog">Ви дійсно хочете приховати значок утиліти в меню запуску встановлених додатків?</string>
+
+	<string name="please_restart_system">Виконайте перезапуск вашої системи</string>
+	
 	<string name="settings">Параметри</string>
 	
 </resources>

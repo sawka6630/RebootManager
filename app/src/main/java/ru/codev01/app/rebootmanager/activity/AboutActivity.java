@@ -5,7 +5,9 @@
 
 package ru.codev01.app.rebootmanager.activity;
 
+import android.app.*;
 import android.content.*;
+import android.content.pm.*;
 import android.net.*;
 import android.os.*;
 import android.preference.*;
@@ -47,6 +49,12 @@ public class AboutActivity extends PreferenceActivity {
 		mCheckRoot.setSummary(R.string.check_root_desc);
 		mCheckRoot.setDefaultValue(true);
 		
+		// пункт Hide App Icon
+		Preference mHideAppIcon = new Preference(this);
+		mHideAppIcon.setKey(getString(R.string.hide_app_icon));
+		mHideAppIcon.setTitle(R.string.hide_app_icon);
+		mHideAppIcon.setSummary(R.string.hide_app_icon_desc);
+		
 		// категория настройки
 		PreferenceCategory mSettings = new PreferenceCategory(this);
 		mSettings.setKey(getString(R.string.settings));
@@ -58,6 +66,7 @@ public class AboutActivity extends PreferenceActivity {
 		/* 3 */ rootScreen.addPreference(mGithubReleases);
 		/* 4 */ rootScreen.addPreference(mSettings);
 		/* 5 */ rootScreen.addPreference(mCheckRoot);
+		/* 6 */ rootScreen.addPreference(mHideAppIcon);
 		
 	}
 
@@ -71,14 +80,34 @@ public class AboutActivity extends PreferenceActivity {
 			jumpBrowser("https://github.com/codev01/RebootManager/releases");
 		} else if (getString(R.string.playstore).equals(itemKey)) { // реакция на нажатие Github Releases
 			jumpBrowser("https://play.google.com/store/apps/details?id=ru.codev01.app.rebootmanager");
+		} else if (getString(R.string.hide_app_icon).equals(itemKey)) { // реакция на нажатие Hide app icon
+			hideAppIcon();
 		} return true;
 	}
 	
-	private void jumpBrowser(String l) {
+	void jumpBrowser(String l) {
 		Intent i = new Intent(Intent.ACTION_VIEW);
 		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		i.setData(Uri.parse(l));
 		startActivity(i);
+	}
+	
+	void hideAppIcon() {
+		AlertDialog.Builder b = new AlertDialog.Builder(this);
+		b.setTitle(R.string.app_name);
+		b.setMessage(R.string.hide_app_icon_dialog);
+		b.setCancelable(false);
+		b.setIcon(R.mipmap.ic_launcher);
+		b.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface di, int id) {
+					PackageManager pm = getPackageManager();
+					ComponentName cn = new ComponentName("ru.codev01.app.rebootmanager","ru.codev01.app.rebootmanager.RebootManager");
+					pm.setComponentEnabledSetting(cn, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+					Toast.makeText(getApplicationContext(), R.string.please_restart_system, Toast.LENGTH_LONG).show();
+				}
+			});
+		AlertDialog a = b.create();
+		a.show();
 	}
 	
 }

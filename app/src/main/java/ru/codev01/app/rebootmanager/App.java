@@ -5,11 +5,8 @@
 
 package ru.codev01.app.rebootmanager;
 
-import android.app.*;
 import android.content.*;
 import android.content.pm.*;
-import java.io.*;
-import ru.codev01.app.rebootmanager.*;
 
 public class App {
 	
@@ -30,7 +27,7 @@ public class App {
 			return "error: getAppVersion();";
 		}
 	}
-
+	
 	public static void suCmd(String cmd) {
 		try {
 			Runtime.getRuntime().exec(cmd);

@@ -27,6 +27,12 @@
 	<string name="check_root">Проверка при запуске</string>
 	<string name="check_root_desc">Проверять наличия прав суперпользователя при запуске приложения</string>
 	
+	<string name="hide_app_icon">Скрыть иконку из меню</string>
+	<string name="hide_app_icon_desc">Скрыть значок утилиты из меню запуска установленных приложений</string>
+	<string name="hide_app_icon_dialog">Вы действительно хотите скрыть значок утилиты в меню запуска установленных приложений?</string>
+
+	<string name="please_restart_system">Пожалуйста, выполните перезапуск вашей системы</string>
+	
 	<string name="settings">Настройки</string>
 	
 </resources>
