@@ -13,10 +13,10 @@ import ru.codev01.app.rebootmanager.*;
 
 public class App {
 	
-	public static String $cmdRebootSystem = "su -c reboot";
-	public static String $cmdRebootRecovery = "su -c reboot recovery";
-	public static String $cmdRebootBootloader = "su -c reboot bootloader";
 	public static String $cmdCheckRoot = "su";
+	public static String $cmdRebootSystem = $cmdCheckRoot + " -c reboot";
+	public static String $cmdRebootRecovery = $cmdCheckRoot + " -c reboot recovery";
+	public static String $cmdRebootBootloader = $cmdCheckRoot + " -c reboot bootloader";
 	
 	public static String getAppVersion(Context c) {
 		try {

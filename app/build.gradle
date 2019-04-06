@@ -9,7 +9,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 26
         versionCode 190324
-        versionName "6"
+        versionName 6
     }
     buildTypes {
         release {

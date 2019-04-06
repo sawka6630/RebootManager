@@ -28,6 +28,8 @@ public class RebootManager extends PreferenceActivity {
 
 		Boolean mCheckRoot = mSharedPrefs.getBoolean(getString(R.string.check_root), true);
 		
+		// если настройка "Проверка рут" включена, то будет проходить проверка
+		// рут-доступа на устро-ве.
 		if (mCheckRoot) {
 			checkRootAccess();
 		}

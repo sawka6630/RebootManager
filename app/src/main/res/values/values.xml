@@ -19,8 +19,8 @@
 	<string name="reboot_recovery_desc">Turning off and transition to recovery mode</string>
 	<string name="reboot_bootloader">Bootloader</string>
 	<string name="reboot_bootloader_desc">Turning off and transition to bootloader</string>
-	<string name="reboot_bootloader_tile">Bootloader</string>
-
+	<string name="reboot_bootloader_tile">@string/reboot_bootloader</string>
+	
 	<string name="root_noaccess">@string/app_name</string>
 	<string name="root_noaccess_desc"><b>Error:</b> it was not possible to obtain the rights of the superuser that are necessary for the correct operation of the program.</string>
 	
