@@ -66,7 +66,10 @@ public class AboutActivity extends PreferenceActivity {
 		/* 3 */ rootScreen.addPreference(mGithubReleases);
 		/* 4 */ rootScreen.addPreference(mSettings);
 		/* 5 */ rootScreen.addPreference(mCheckRoot);
-		/* 6 */ rootScreen.addPreference(mHideAppIcon);
+		
+		if (Build.VERSION.SDK_INT >= 24) {
+			/* 6 */ rootScreen.addPreference(mHideAppIcon);
+		}
 		
 	}
 
