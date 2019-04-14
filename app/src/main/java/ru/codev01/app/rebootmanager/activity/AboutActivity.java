@@ -109,6 +109,11 @@ public class AboutActivity extends PreferenceActivity {
 					Toast.makeText(getApplicationContext(), R.string.please_restart_system, Toast.LENGTH_LONG).show();
 				}
 			});
+		b.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface di, int id) {
+					di.dismiss();
+				}
+			});
 		AlertDialog a = b.create();
 		a.show();
 	}
